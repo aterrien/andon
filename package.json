@@ -1,0 +1,23 @@
+{
+  "name": "andon",
+  "version": "0.0.1",
+  "description": "A simple system to notify developers of the quality of a process.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "andon",
+    "quality",
+    "process"
+  ],
+  "author": "Anthony Terrien",
+  "license": "BSD",
+  "dependencies": {
+    "socket.io": "~0.9.16",
+    "express": "~3.5.1",
+    "consolidate": "~0.10.0",
+    "dustjs-linkedin": "~2.3.4",
+    "request": "~2.34.0"
+  }
+}

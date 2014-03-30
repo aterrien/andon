@@ -1,0 +1,47 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    font-family: Helvetica;
+    background-color: #EEE;
+    //background-image: url(/img/ok.gif)
+}
+
+.andon-CRITICAL, .andon-WARNING, .andon-NOTICE, .andon-EXCEPTION {
+    height: 60px;
+    color: #FFF;
+    background: #555;
+    padding: 15px;
+    font-size: 3em;
+}
+
+.andon-CRITICAL {
+    background: red
+}
+
+.andon-WARNING {
+    background: orange
+}
+
+.andon-NOTICE {
+    background: silver
+}
+
+.andon-EXCEPTION {
+    background: black
+}
+
+div[class^='andon-'] {
+    position: relative;
+}
+
+div.message {
+    position: absolute;
+}
+
+div.date {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: .4em;
+}
