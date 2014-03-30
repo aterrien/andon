@@ -1,1 +1,1 @@
-A simple andon.
+A simple "<a href="http://en.wikipedia.org/wiki/Andon_(manufacturing)">andon</a>" tool.
