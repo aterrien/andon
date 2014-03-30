@@ -89,6 +89,8 @@ Andon.prototype = {
 var Job = function(config, andon) {
     this.config = config;
     this.andon = andon;
+    this.lastLevel = null;
+    this.countCurrent = 0;
 };
 Job.prototype = {
     execute: function() {
@@ -109,9 +111,9 @@ Job.prototype = {
 
                         if(response.headers['content-type'].indexOf('application/json') > -1) {
                             var json = JSON.parse(body);
-                            _this.config.distill.call(_this, json);
+                            _this.config.analyze.call(_this, json);
                         } else {
-                            _this.config.distill.call(_this, body);
+                            _this.config.analyze.call(_this, body);
                         }
                     } else {
                         console.log(error, response.statusCode);
@@ -121,12 +123,22 @@ Job.prototype = {
         }, this.config.ttl);
     },
     emit: function(message, level) {
+
+        // count alerts
+        if(this.lastLevel != level) {
+            this.countCurrent = 0;
+            this.lastLevel = level;
+        }
+        this.countCurrent++;
+
         return this.andon.emit({
             id: this.config.id,
+            label: this.config.label,
             info: message,
             level: level,
             ttl: this.config.ttl,
-            last: (new Date()).toJSON()
+            time: (new Date()).toJSON(),
+            count: this.countCurrent
         });
     },
     critical: function(message) {

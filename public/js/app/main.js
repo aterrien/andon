@@ -28,9 +28,9 @@ require(['jquery', 'socket.io'], function($) {
         }
 
         elmt.attr('class', 'andon-' + data.level)
-            .html('<div class=message><span><strong>' + data.id + '</strong></span>'
+            .html('<div class=message><span><strong>' + data.label + '</strong></span>'
                 + ' <span>' + data.info + '</span></div>'
-                + '<div class=date>' + data.last + '</div>'
+                + '<div class=date>' + data.time + '</div>'
             );
 
         //input.val(data);
