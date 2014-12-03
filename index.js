@@ -101,7 +101,9 @@ Job.prototype = {
             request(
                 _this.config.api,
                 function (error, response, body) {
-                    if (!error && response.statusCode == 200) {
+                    if (!error && response && response.statusCode == 200) {
+                        _this.exception('...');
+
                         // compressed content
                         var encoding = response.headers['content-encoding']
                         if(encoding && encoding.indexOf('gzip')>=0) {
@@ -116,8 +118,8 @@ Job.prototype = {
                             _this.config.analyze.call(_this, body);
                         }
                     } else {
-                        console.log(error, response.statusCode);
-                        _this.exception('can\'t collect datas');
+                        //console.log(error, response.statusCode);
+                        _this.exception('can\'t collect datas / ' + response.statusCode);
                     }
                 });
         }, this.config.ttl);
@@ -152,10 +154,10 @@ Job.prototype = {
     },
     exception: function(message) {
         return this.emit(message, "EXCEPTION");
+    },
+    green: function(message) {
+        return this.emit(message, "GREEN");
     }
 };
 
 (new Andon(config)).run();
-
-
-

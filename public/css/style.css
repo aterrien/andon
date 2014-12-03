@@ -3,32 +3,53 @@ body {
     padding: 0px;
     text-align: center;
     font-family: Helvetica;
-    background-color: #EEE;
+    background-color: #000;
     //background-image: url(/img/ok.gif)
 }
 
-.andon-CRITICAL, .andon-WARNING, .andon-NOTICE, .andon-EXCEPTION {
-    height: 60px;
-    color: #FFF;
+.job {
+    position: relative;
     background: #555;
+    margin-bottom: 20px;
+}
+
+.andon-CRITICAL, .andon-WARNING, .andon-NOTICE,
+.andon-EXCEPTION, .andon-GREEN {
+    height: 80px;
+    color: #FFF;
     padding: 15px;
     font-size: 3em;
 }
 
 .andon-CRITICAL {
-    background: red
+    //background: red;
+    border-left: 20px solid red;
+    border-right: 20px solid red;
 }
 
 .andon-WARNING {
-    background: orange
+    //background: orange;
+    border-left: 20px solid orange;
+    border-right: 20px solid orange;
 }
 
 .andon-NOTICE {
-    background: silver
+    //background: silver;
+    border-left: 20px solid silver;
+    border-right: 20px solid silver;
 }
 
 .andon-EXCEPTION {
-    background: black
+    //background: #555;
+    color: #CCC;
+    border-left: 20px solid #555;
+    border-right: 20px solid #555;
+}
+
+.andon-GREEN {
+    //background: #00BB33;
+    border-left: 20px solid #00BB33;
+    border-right: 20px solid #00BB33;
 }
 
 div[class^='andon-'] {
@@ -41,7 +62,7 @@ div.message {
 
 div.date {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    bottom: 20px;
+    right: 20px;
     font-size: .4em;
 }

@@ -1,10 +1,10 @@
 module.exports = {
     "web": {
         "http": {
-            "port": 8080
+            "port": 8081
         },
         "ws": {
-            "port": 443
+            "port": 8082 // 443
         }
     }
 };
